@@ -1,0 +1,34 @@
+import React from "react";
+import Link from "next/link";
+
+interface LinkItem {
+  href: string;
+  label: string;
+  key?: string;
+}
+
+const links: LinkItem[] = [].map((link: LinkItem) => {
+  link.key = `nav-link-${link.href}-${link.label}`;
+  return link;
+});
+
+const Header = () => (
+  <header>
+    <nav>
+      <ul>
+        <li>
+          <Link href="/">
+            <a>Home</a>
+          </Link>
+        </li>
+        {links.map(({ key, href, label }) => (
+          <li key={key}>
+            <a href={href}>{label}</a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  </header>
+);
+
+export default Header;
