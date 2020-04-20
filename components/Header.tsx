@@ -1,33 +1,15 @@
 import React from "react";
 import Link from "next/link";
-
-interface LinkItem {
-  href: string;
-  label: string;
-  key?: string;
-}
-
-const links: LinkItem[] = [].map((link: LinkItem) => {
-  link.key = `nav-link-${link.href}-${link.label}`;
-  return link;
-});
+import siteInfo from "../siteInfo.json";
 
 const Header = () => (
   <header>
-    <nav>
-      <ul>
-        <li>
-          <Link href="/">
-            <a>Home</a>
-          </Link>
-        </li>
-        {links.map(({ key, href, label }) => (
-          <li key={key}>
-            <a href={href}>{label}</a>
-          </li>
-        ))}
-      </ul>
-    </nav>
+    <Link href="/">
+      <h1 className="text-2xl mt-4 mb-2 text-center text-gray-800">
+        {siteInfo.title}
+      </h1>
+    </Link>
+    <p className="text-center text-gray-500">{siteInfo.description}</p>
   </header>
 );
 

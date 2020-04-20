@@ -4,3 +4,7 @@
   font-family: "FZXiJinLJW";
   src: url("/fonts/FZXiJinLJW.ttf") format("truetype");
 }
+
+body {
+  @apply bg-gray-200;
+}

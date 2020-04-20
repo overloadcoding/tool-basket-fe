@@ -1,5 +1,4 @@
 import React from "react";
-import Head from "next/head";
 import PropTypes from "prop-types";
 
 import Header from "./Header";
@@ -10,10 +9,10 @@ interface LayoutProps {
   widthFooter?: boolean;
 }
 
-const Layout: React.FC<LayoutProps> = props => {
+const Layout: React.FC<LayoutProps> = (props) => {
   const { widthHeader, widthFooter, children } = props;
   return (
-    <div className="flex flex-col w-screen h-screen">
+    <div className="w-full max-w-screen-xl mx-auto px-6">
       {widthHeader && <Header />}
       {children}
       {widthFooter && <Footer />}
@@ -23,12 +22,12 @@ const Layout: React.FC<LayoutProps> = props => {
 
 Layout.propTypes = {
   widthHeader: PropTypes.bool,
-  widthFooter: PropTypes.bool
+  widthFooter: PropTypes.bool,
 };
 
 Layout.defaultProps = {
   widthHeader: true,
-  widthFooter: true
+  widthFooter: true,
 };
 
 export default Layout;
